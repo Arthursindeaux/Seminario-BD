@@ -1,0 +1,152 @@
+[
+  {
+    "_from": "usuarios/u01",
+    "_to": "usuarios/u02",
+    "desde": 2021
+  },
+  {
+    "_from": "usuarios/u01",
+    "_to": "usuarios/u03",
+    "desde": 2022
+  },
+  {
+    "_from": "usuarios/u01",
+    "_to": "usuarios/u05",
+    "desde": 2023
+  },
+  {
+    "_from": "usuarios/u01",
+    "_to": "usuarios/u11",
+    "desde": 2025
+  },
+  {
+    "_from": "usuarios/u02",
+    "_to": "usuarios/u04",
+    "desde": 2020
+  },
+  {
+    "_from": "usuarios/u02",
+    "_to": "usuarios/u06",
+    "desde": 2022
+  },
+  {
+    "_from": "usuarios/u02",
+    "_to": "usuarios/u18",
+    "desde": 2024
+  },
+  {
+    "_from": "usuarios/u03",
+    "_to": "usuarios/u07",
+    "desde": 2019
+  },
+  {
+    "_from": "usuarios/u03",
+    "_to": "usuarios/u09",
+    "desde": 2023
+  },
+  {
+    "_from": "usuarios/u03",
+    "_to": "usuarios/u11",
+    "desde": 2024
+  },
+  {
+    "_from": "usuarios/u05",
+    "_to": "usuarios/u06",
+    "desde": 2021
+  },
+  {
+    "_from": "usuarios/u05",
+    "_to": "usuarios/u10",
+    "desde": 2022
+  },
+  {
+    "_from": "usuarios/u05",
+    "_to": "usuarios/u13",
+    "desde": 2025
+  },
+  {
+    "_from": "usuarios/u11",
+    "_to": "usuarios/u09",
+    "desde": 2024
+  },
+  {
+    "_from": "usuarios/u11",
+    "_to": "usuarios/u17",
+    "desde": 2023
+  },
+  {
+    "_from": "usuarios/u11",
+    "_to": "usuarios/u13",
+    "desde": 2022
+  },
+  {
+    "_from": "usuarios/u04",
+    "_to": "usuarios/u12",
+    "desde": 2023
+  },
+  {
+    "_from": "usuarios/u06",
+    "_to": "usuarios/u14",
+    "desde": 2024
+  },
+  {
+    "_from": "usuarios/u07",
+    "_to": "usuarios/u15",
+    "desde": 2022
+  },
+  {
+    "_from": "usuarios/u09",
+    "_to": "usuarios/u12",
+    "desde": 2025
+  },
+  {
+    "_from": "usuarios/u10",
+    "_to": "usuarios/u16",
+    "desde": 2021
+  },
+  {
+    "_from": "usuarios/u13",
+    "_to": "usuarios/u16",
+    "desde": 2023
+  },
+  {
+    "_from": "usuarios/u14",
+    "_to": "usuarios/u19",
+    "desde": 2022
+  },
+  {
+    "_from": "usuarios/u15",
+    "_to": "usuarios/u20",
+    "desde": 2024
+  },
+  {
+    "_from": "usuarios/u16",
+    "_to": "usuarios/u08",
+    "desde": 2020
+  },
+  {
+    "_from": "usuarios/u17",
+    "_to": "usuarios/u19",
+    "desde": 2025
+  },
+  {
+    "_from": "usuarios/u18",
+    "_to": "usuarios/u07",
+    "desde": 2023
+  },
+  {
+    "_from": "usuarios/u12",
+    "_to": "usuarios/u14",
+    "desde": 2024
+  },
+  {
+    "_from": "usuarios/u19",
+    "_to": "usuarios/u08",
+    "desde": 2021
+  },
+  {
+    "_from": "usuarios/u06",
+    "_to": "usuarios/u18",
+    "desde": 2025
+  }
+]

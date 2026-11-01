@@ -1,0 +1,111 @@
+// =====================================================================
+// SEMINÁRIO NoSQL — GRUPO 5 — ArangoDB (Multimodelo)
+// Rede social: usuarios (DOCUMENTO) + amizades (GRAFO) + sessoes (CHAVE-VALOR)
+// Rode cada bloco separadamente no editor "Queries" da interface web.
+// =====================================================================
+
+
+// ---------------------------------------------------------------------
+// PARTE 1 — CRUD (modelo DOCUMENTO)
+// ---------------------------------------------------------------------
+
+// 1.1 CREATE — inserir um novo usuário (documento JSON flexível)
+INSERT {
+  _key: "u21",
+  nome: "Zeca",
+  idade: 20,
+  cidade: "Recife",
+  hobbies: ["tecnologia", "música"],
+  github: "zeca-dev"
+} INTO usuarios
+RETURN NEW
+
+// 1.2 READ — buscar usuários de Recife com mais de 20 anos
+FOR u IN usuarios
+  FILTER u.cidade == "Recife" AND u.idade > 20
+  SORT u.idade DESC
+  RETURN { nome: u.nome, idade: u.idade, hobbies: u.hobbies }
+
+// 1.3 UPDATE — atualizar o documento (adiciona um campo novo, sem migração de esquema)
+UPDATE "u21" WITH { idade: 21, linkedin: "zeca-silva" } IN usuarios
+RETURN NEW
+
+// 1.4 (extra) Criar uma amizade para o novo usuário (aresta do grafo)
+INSERT { _from: "usuarios/u21", _to: "usuarios/u01", desde: 2026 } INTO amizades
+RETURN NEW
+
+// 1.5 DELETE — remover o usuário e as arestas dele
+//     (em AQL puro, remover só o vértice deixaria arestas "órfãs")
+FOR a IN amizades
+  FILTER a._from == "usuarios/u21" OR a._to == "usuarios/u21"
+  REMOVE a IN amizades
+
+REMOVE "u21" IN usuarios
+RETURN OLD
+
+
+// ---------------------------------------------------------------------
+// PARTE 2 — CONSULTAS COMPLEXAS (o valor do multimodelo)
+// ---------------------------------------------------------------------
+
+// 2.1 GRAFO + DOCUMENTO numa query só:
+//     "Amigos de amigos do Arthur que gostam de tecnologia"
+//     Resultado esperado: Daniela, Fernanda, Igor, Rafael
+FOR v, e, p IN 1..2 ANY "usuarios/u01" amizades
+  OPTIONS { order: "bfs", uniqueVertices: "global" }
+  FILTER LENGTH(p.edges) == 2
+  FILTER "tecnologia" IN v.hobbies
+  SORT v.nome
+  RETURN { nome: v.nome, cidade: v.cidade, hobbies: v.hobbies }
+
+// 2.2 Sugestão de amizade ("pessoas que você talvez conheça")
+//     Conta amigos em comum e ordena.
+//     Resultado esperado: Fernanda 2, Igor 2, Marcos 2, Daniela 1, Gabriel 1
+LET amigos = (FOR v IN 1..1 ANY "usuarios/u01" amizades RETURN v._id)
+FOR a IN amigos
+  FOR s IN 1..1 ANY a amizades
+    FILTER s._id != "usuarios/u01" AND s._id NOT IN amigos
+    COLLECT nome = s.nome INTO grupo = a
+    LET qtd = LENGTH(grupo)
+    SORT qtd DESC, nome
+    LIMIT 5
+    RETURN { sugestao: nome, amigos_em_comum: qtd, via: DOCUMENT(grupo)[*].nome }
+
+// 2.3 Caminho mais curto entre duas pessoas ("graus de separação")
+//     Resultado esperado: Arthur → Carlos → Gabriel → Otávio → Vitória
+FOR v IN ANY SHORTEST_PATH "usuarios/u01" TO "usuarios/u20" amizades
+  RETURN v.nome
+
+// 2.4 (bônus) Estatística do círculo social: hobbies mais comuns até 2 graus
+FOR v IN 1..2 ANY "usuarios/u01" amizades
+  OPTIONS { order: "bfs", uniqueVertices: "global" }
+  FOR h IN v.hobbies
+    COLLECT hobby = h WITH COUNT INTO total
+    SORT total DESC
+    RETURN { hobby, total }
+
+
+// ---------------------------------------------------------------------
+// PARTE 3 — CHAVE-VALOR (coleção sessoes, acesso direto pela _key)
+// ---------------------------------------------------------------------
+
+// 3.1 SET — gravar uma sessão (equivalente ao SETEX do Redis)
+INSERT {
+  _key: "sessao_1001",
+  usuario: "usuarios/u01",
+  criada_em: DATE_ISO8601(DATE_NOW())
+} INTO sessoes
+RETURN NEW
+
+// 3.2 GET — leitura direta pela chave (lookup O(1) no índice primário)
+RETURN DOCUMENT("sessoes/sessao_1001")
+
+// 3.3 OS TRÊS MODELOS JUNTOS:
+//     sessão (chave-valor) → perfil (documento) → amigos (grafo)
+LET sessao = DOCUMENT("sessoes/sessao_1001")
+LET perfil = DOCUMENT(sessao.usuario)
+RETURN {
+  usuario_logado: perfil.nome,
+  cidade: perfil.cidade,
+  amigos: (FOR v IN 1..1 ANY perfil._id amizades RETURN v.nome)
+}

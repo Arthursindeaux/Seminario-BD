@@ -1,0 +1,211 @@
+[
+  {
+    "_key": "u01",
+    "nome": "Arthur",
+    "idade": 19,
+    "cidade": "Recife",
+    "hobbies": [
+      "tecnologia",
+      "futebol",
+      "anime"
+    ],
+    "github": "arthur-dev"
+  },
+  {
+    "_key": "u02",
+    "nome": "Beatriz",
+    "idade": 21,
+    "cidade": "Recife",
+    "hobbies": [
+      "leitura",
+      "música"
+    ]
+  },
+  {
+    "_key": "u03",
+    "nome": "Carlos",
+    "idade": 24,
+    "cidade": "Olinda",
+    "hobbies": [
+      "futebol",
+      "games"
+    ],
+    "empresa": "Porto Digital"
+  },
+  {
+    "_key": "u04",
+    "nome": "Daniela",
+    "idade": 20,
+    "cidade": "Recife",
+    "hobbies": [
+      "tecnologia",
+      "fotografia"
+    ]
+  },
+  {
+    "_key": "u05",
+    "nome": "Eduardo",
+    "idade": 22,
+    "cidade": "Jaboatão",
+    "hobbies": [
+      "música",
+      "culinária"
+    ]
+  },
+  {
+    "_key": "u06",
+    "nome": "Fernanda",
+    "idade": 23,
+    "cidade": "Recife",
+    "hobbies": [
+      "tecnologia",
+      "leitura"
+    ],
+    "github": "fe-codes",
+    "linkedin": "fernanda-silva"
+  },
+  {
+    "_key": "u07",
+    "nome": "Gabriel",
+    "idade": 19,
+    "cidade": "Caruaru",
+    "hobbies": [
+      "games",
+      "anime"
+    ]
+  },
+  {
+    "_key": "u08",
+    "nome": "Helena",
+    "idade": 25,
+    "cidade": "Olinda",
+    "hobbies": [
+      "fotografia",
+      "viagens"
+    ],
+    "instagram": "@helena.fotos"
+  },
+  {
+    "_key": "u09",
+    "nome": "Igor",
+    "idade": 21,
+    "cidade": "Recife",
+    "hobbies": [
+      "tecnologia",
+      "games"
+    ]
+  },
+  {
+    "_key": "u10",
+    "nome": "Juliana",
+    "idade": 22,
+    "cidade": "Paulista",
+    "hobbies": [
+      "dança",
+      "música"
+    ]
+  },
+  {
+    "_key": "u11",
+    "nome": "Kleber",
+    "idade": 30,
+    "cidade": "Recife",
+    "hobbies": [
+      "futebol",
+      "culinária"
+    ],
+    "empresa": "CESAR"
+  },
+  {
+    "_key": "u12",
+    "nome": "Larissa",
+    "idade": 20,
+    "cidade": "Olinda",
+    "hobbies": [
+      "tecnologia",
+      "dança"
+    ]
+  },
+  {
+    "_key": "u13",
+    "nome": "Marcos",
+    "idade": 27,
+    "cidade": "Jaboatão",
+    "hobbies": [
+      "viagens",
+      "futebol"
+    ]
+  },
+  {
+    "_key": "u14",
+    "nome": "Natália",
+    "idade": 24,
+    "cidade": "Recife",
+    "hobbies": [
+      "leitura",
+      "tecnologia"
+    ],
+    "github": "natcodes"
+  },
+  {
+    "_key": "u15",
+    "nome": "Otávio",
+    "idade": 26,
+    "cidade": "Caruaru",
+    "hobbies": [
+      "música",
+      "games"
+    ]
+  },
+  {
+    "_key": "u16",
+    "nome": "Paula",
+    "idade": 21,
+    "cidade": "Recife",
+    "hobbies": [
+      "culinária",
+      "viagens"
+    ]
+  },
+  {
+    "_key": "u17",
+    "nome": "Rafael",
+    "idade": 23,
+    "cidade": "Paulista",
+    "hobbies": [
+      "tecnologia",
+      "futebol"
+    ]
+  },
+  {
+    "_key": "u18",
+    "nome": "Sofia",
+    "idade": 19,
+    "cidade": "Recife",
+    "hobbies": [
+      "anime",
+      "leitura"
+    ]
+  },
+  {
+    "_key": "u19",
+    "nome": "Thiago",
+    "idade": 28,
+    "cidade": "Olinda",
+    "hobbies": [
+      "fotografia",
+      "tecnologia"
+    ],
+    "empresa": "Porto Digital"
+  },
+  {
+    "_key": "u20",
+    "nome": "Vitória",
+    "idade": 22,
+    "cidade": "Caruaru",
+    "hobbies": [
+      "dança",
+      "viagens"
+    ]
+  }
+]
